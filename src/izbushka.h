@@ -78,22 +78,39 @@ public:
   }
 
   void moveForward(int iterations = 1) {
-    Izbushka::writeServoSlow(0,0,0,0);
     for (;iterations>0;iterations--) {
-      Izbushka::writeServoSlow(0,0,0,0);
+      Izbushka::writeServoSlow(10,-20,10,-20);
+      Izbushka::writeServoSlow(-10,-20,-10,-20);
+      Izbushka::writeServoSlow(-10,20,-10,20);
+      Izbushka::writeServoSlow(10,20,10,20);
     }
   }
 
   void moveBackward(int iterations = 1) {
-
+    for (;iterations>0;iterations--) {
+      Izbushka::writeServoSlow(10,20,10,20);
+      Izbushka::writeServoSlow(-10,20,-10,20);
+      Izbushka::writeServoSlow(-10,-20,-10,-20);
+      Izbushka::writeServoSlow(10,-20,10,-20);
+    }
   }
 
   void turnLeft(int iterations = 1) {
-
+    for (;iterations>0;iterations--) {
+      Izbushka::writeServoSlow(10,-20,10,20);
+      Izbushka::writeServoSlow(-10,-20,-10,20);
+      Izbushka::writeServoSlow(-10,20,-10,-20);
+      Izbushka::writeServoSlow(10,20,10,-20);
+    }
   }
 
   void turnRight(int iterations = 1) {
-    
+    for (;iterations>0;iterations--) {
+      Izbushka::writeServoSlow(10,20,10,-20);
+      Izbushka::writeServoSlow(-10,20,-10,-20);
+      Izbushka::writeServoSlow(-10,-20,-10,20);
+      Izbushka::writeServoSlow(10,-20,10,20);
+    }
   }
 
   void jump(int iterations = 1) {
@@ -102,6 +119,10 @@ public:
       Izbushka::writeServoSlow(20,0,-20,0);
       Izbushka::writeServoSlow(0,0,0,0);
     }
+  }
+
+  void stop() {
+    Izbushka::writeServoSlow(0,0,0,0);
   }
 
 private:
